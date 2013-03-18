@@ -42,7 +42,7 @@ public enum SBATRequestFactory {
 		}
 	}
 
-	SBATRequest getNewInstance(String commandString, String parameterString) {
+	public SBATRequest getNewInstance(String commandString, String parameterString) {
 		String sbatRequestFQCN = requestsMap.get(commandString);
 		SBATRequest sbatRequest = null;
 		if (null != sbatRequestFQCN) {
