@@ -14,14 +14,14 @@ public class SBATRequestFactoryTest {
 
 	@Test
 	public void testRequestCreation() {
-		SBATRequest dummySbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("dummy");
+		SBATRequest dummySbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("dummy", "param1 param2");
 		assertNotNull(dummySbatRequest);
 		assertTrue(dummySbatRequest instanceof DummyRequest);
 	}
 
 	@Test
 	public void testRequestCreationForInvalidRequest() {
-		SBATRequest dummySbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("dummy2");
+		SBATRequest dummySbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("dummy2", "param1 param2");
 		assertNull(dummySbatRequest);
 	}
 

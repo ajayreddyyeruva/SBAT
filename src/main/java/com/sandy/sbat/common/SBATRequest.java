@@ -5,6 +5,8 @@ package com.sandy.sbat.common;
  * @author user
  *
  */
-public interface SBATRequest {
+public interface SBATRequest extends Cloneable{
 
+	SBATCommand getCommand();
+	void initialize(String requestString);
 }
