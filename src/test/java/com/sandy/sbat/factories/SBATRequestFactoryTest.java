@@ -11,6 +11,8 @@ import org.junit.Test;
 import com.sandy.sbat.common.SBATRequest;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATRequest;
+import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATCommand;
+import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATRequest;
 
 public class SBATRequestFactoryTest {
 
@@ -23,12 +25,23 @@ public class SBATRequestFactoryTest {
 
 	@Test
 	public void testOpenUrlRequestCreation() throws Exception {
-		SBATRequest openUrlSbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("openUrl", "http://yahoo.com");
-		assertNotNull(openUrlSbatRequest);
-		assertTrue(openUrlSbatRequest instanceof OpenUrlSBATRequest);
-		assertEquals("http://yahoo.com", ((OpenUrlSBATRequest)openUrlSbatRequest).getUrl());
-		assertNotNull(openUrlSbatRequest.getCommand());
-		assertTrue(openUrlSbatRequest.getCommand() instanceof OpenUrlSBATCommand);
+		SBATRequest openUrlSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("openUrl", "http://yahoo.com");
+		assertNotNull(openUrlSBATRequest);
+		assertTrue(openUrlSBATRequest instanceof OpenUrlSBATRequest);
+		assertEquals("http://yahoo.com", ((OpenUrlSBATRequest)openUrlSBATRequest).getUrl());
+		assertNotNull(openUrlSBATRequest.getCommand());
+		assertTrue(openUrlSBATRequest.getCommand() instanceof OpenUrlSBATCommand);
+	}
+
+	@Test
+	public void testTextBoxInputRequestCreation() throws Exception {
+		SBATRequest textBoxInputSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("textBoxInput", "xpath value");
+		assertNotNull(textBoxInputSBATRequest);
+		assertTrue(textBoxInputSBATRequest instanceof TextBoxInputSBATRequest);
+		assertEquals("xpath", ((TextBoxInputSBATRequest)textBoxInputSBATRequest).getTargetElementXPath());
+		assertEquals("value", ((TextBoxInputSBATRequest)textBoxInputSBATRequest).getText());
+		assertNotNull(textBoxInputSBATRequest.getCommand());
+		assertTrue(textBoxInputSBATRequest.getCommand() instanceof TextBoxInputSBATCommand);
 	}
 	
 	@Test
