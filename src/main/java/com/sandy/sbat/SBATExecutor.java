@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.sandy.sbat.common.SBATRequest;
+import com.sandy.sbat.common.WebDriverExecutor;
 import com.sandy.sbat.factories.SBATRequestFactory;
 
 
@@ -23,7 +24,7 @@ public class SBATExecutor {
 		for (Operation operation : operations) {
 			executeOperation(operation);
 		}
-//		WebDriverExecutor.SINGLETON.getWebDriver().
+		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 
 	private void executeOperation(Operation operation) {
@@ -53,6 +54,7 @@ public class SBATExecutor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 
 }
