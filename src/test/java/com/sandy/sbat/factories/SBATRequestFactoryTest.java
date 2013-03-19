@@ -9,6 +9,8 @@ import java.util.Properties;
 import org.junit.Test;
 
 import com.sandy.sbat.common.SBATRequest;
+import com.sandy.sbat.operation.elementclick.ElementClickSBATCommand;
+import com.sandy.sbat.operation.elementclick.ElementClickSBATRequest;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATRequest;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATCommand;
@@ -42,6 +44,16 @@ public class SBATRequestFactoryTest {
 		assertEquals("value", ((TextBoxInputSBATRequest)textBoxInputSBATRequest).getText());
 		assertNotNull(textBoxInputSBATRequest.getCommand());
 		assertTrue(textBoxInputSBATRequest.getCommand() instanceof TextBoxInputSBATCommand);
+	}
+
+	@Test
+	public void testElementClickRequestCreation() throws Exception {
+		SBATRequest elementClickSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("clickElement", "xpath");
+		assertNotNull(elementClickSBATRequest);
+		assertTrue(elementClickSBATRequest instanceof ElementClickSBATRequest);
+		assertEquals("xpath", ((ElementClickSBATRequest)elementClickSBATRequest).getTargetElementXPath());
+		assertNotNull(elementClickSBATRequest.getCommand());
+		assertTrue(elementClickSBATRequest.getCommand() instanceof ElementClickSBATCommand);
 	}
 	
 	@Test
