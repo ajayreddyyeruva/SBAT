@@ -19,4 +19,12 @@ public class Operation {
 		return parametersString;
 	}
 
+	@Override
+	public String toString() {
+		return "Operation [commandString=" + commandString
+				+ ", parametersString=" + parametersString + "]";
+	}
+	
+	
+
 }

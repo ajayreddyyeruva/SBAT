@@ -28,8 +28,10 @@ public class SBATExecutor {
 	}
 
 	private void executeOperation(Operation operation) {
+		System.out.println("Performing operation " + operation);
 		SBATRequest sbatRequest = SBATRequestFactory.SINGLETON.getNewInstance(operation.getCommandString(), operation.getParametersString());
 		sbatRequest.getCommand().execute(sbatRequest);
+		System.out.println("Execution done for operation " + operation);
 	}
 	
 	public void execute(File operationsFile) {
@@ -51,6 +53,12 @@ public class SBATExecutor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Thread.sleep(1000 * 60 * 2);
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
