@@ -15,7 +15,6 @@ import com.sandy.sbat.operation.elementclick.ElementClickSBATRequest;
 
 public class MouseHoverSBATCommand implements SBATCommand {
 
-    @Override
     public SBATResponse execute(SBATRequest request) {
         MouseHoverSBATRequest mouseHoverSBATRequest = (MouseHoverSBATRequest)request;
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();

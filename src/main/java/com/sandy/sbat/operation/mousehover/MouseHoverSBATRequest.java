@@ -7,12 +7,10 @@ public class MouseHoverSBATRequest implements SBATRequest {
 
     private String targetElementXPath;
 
-    @Override
     public SBATCommand getCommand() {
         return new MouseHoverSBATCommand();
     }
 
-    @Override
     public void initialize(String requestString) {
         targetElementXPath=requestString.trim();
     }
