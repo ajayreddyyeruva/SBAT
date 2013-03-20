@@ -11,6 +11,8 @@ import org.junit.Test;
 import com.sandy.sbat.common.SBATRequest;
 import com.sandy.sbat.operation.elementclick.ElementClickSBATCommand;
 import com.sandy.sbat.operation.elementclick.ElementClickSBATRequest;
+import com.sandy.sbat.operation.mousehover.MouseHoverSBATCommand;
+import com.sandy.sbat.operation.mousehover.MouseHoverSBATRequest;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATRequest;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATCommand;
@@ -55,6 +57,16 @@ public class SBATRequestFactoryTest {
 		assertNotNull(elementClickSBATRequest.getCommand());
 		assertTrue(elementClickSBATRequest.getCommand() instanceof ElementClickSBATCommand);
 	}
+	
+	@Test
+    public void testMouseHoverRequestCreation() throws Exception {
+        SBATRequest mousehoverSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("mouseHover", "xpath");
+        assertNotNull(mousehoverSBATRequest);
+        assertTrue(mousehoverSBATRequest instanceof MouseHoverSBATRequest);
+        assertEquals("xpath", ((MouseHoverSBATRequest)mousehoverSBATRequest).getTargetElementXPath());
+        assertNotNull(mousehoverSBATRequest.getCommand());
+        assertTrue(mousehoverSBATRequest.getCommand() instanceof MouseHoverSBATCommand);
+    }
 	
 	@Test
 	public void testRequestCreationForInvalidRequest() {
