@@ -17,6 +17,8 @@ import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATRequest;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATCommand;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATRequest;
+import com.sandy.sbat.operation.verifytextpresent.VerifyTextPresentSBATCommand;
+import com.sandy.sbat.operation.verifytextpresent.VerifyTextPresentSBATRequest;
 
 public class SBATRequestFactoryTest {
 
@@ -73,5 +75,15 @@ public class SBATRequestFactoryTest {
 		SBATRequest dummySbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("dummy2", "param1 param2");
 		assertNull(dummySbatRequest);
 	}
+	
+	@Test
+    public void testVerifyTextPresentRequestCreation() throws Exception {
+        SBATRequest verifytextpresentSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("verifyTextPresent", "text");
+        assertNotNull(verifytextpresentSBATRequest);
+        assertTrue(verifytextpresentSBATRequest instanceof VerifyTextPresentSBATRequest);
+        assertEquals("text", ((VerifyTextPresentSBATRequest)verifytextpresentSBATRequest).getTextToVerify());
+        assertNotNull(verifytextpresentSBATRequest.getCommand());
+        assertTrue(verifytextpresentSBATRequest.getCommand() instanceof VerifyTextPresentSBATCommand);
+    }
 
 }

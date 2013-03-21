@@ -16,6 +16,12 @@ import com.sandy.sbat.operation.elementclick.ElementClickSBATRequest;
 public class MouseHoverSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
+        try {
+            Thread.sleep(1000* 10);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         MouseHoverSBATRequest mouseHoverSBATRequest = (MouseHoverSBATRequest)request;
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 300);

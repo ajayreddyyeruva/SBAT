@@ -24,6 +24,7 @@ public class SBATExecutor {
 		for (Operation operation : operations) {
 			executeOperation(operation);
 		}
+		System.out.println("quitting driver1");
 		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 
@@ -56,12 +57,7 @@ public class SBATExecutor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			Thread.sleep(1000 * 60 * 2);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("quitting driver2");
 		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 
