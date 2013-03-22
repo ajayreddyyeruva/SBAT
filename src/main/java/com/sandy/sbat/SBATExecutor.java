@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.List;
 
 import com.sandy.sbat.common.SBATRequest;
+import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.SBATStatus;
 import com.sandy.sbat.common.WebDriverExecutor;
 import com.sandy.sbat.factories.SBATRequestFactory;
 
@@ -22,17 +24,20 @@ public class SBATExecutor {
 	public void execute(List<Operation> operations) {
 		
 		for (Operation operation : operations) {
-			executeOperation(operation);
+			SBATResponse executeResponse = executeOperation(operation);
+			if(executeResponse.getStatus().equals(SBATStatus.FAILURE_TERMINATION)) {
+			    break;
+			}
 		}
-		System.out.println("quitting driver1");
+		System.out.println("executing quit driver");
 		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 
-	private void executeOperation(Operation operation) {
+	private SBATResponse executeOperation(Operation operation) {
 		System.out.println("Performing operation " + operation);
 		SBATRequest sbatRequest = SBATRequestFactory.SINGLETON.getNewInstance(operation.getCommandString(), operation.getParametersString());
-		sbatRequest.getCommand().execute(sbatRequest);
-		System.out.println("Execution done for operation " + operation);
+		SBATResponse sbatResponse=sbatRequest.getCommand().execute(sbatRequest);
+		return sbatResponse;
 	}
 	
 	public void execute(File operationsFile) {
@@ -43,7 +48,10 @@ public class SBATExecutor {
 			try {
 				while ((operationString = br.readLine()) != null) {
 					Operation operation = new Operation(operationString);
-					executeOperation(operation);
+					SBATResponse executeResponse = executeOperation(operation);
+		            if(executeResponse.getStatus().equals(SBATStatus.FAILURE_TERMINATION)) {
+		                break;
+		            }
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -57,7 +65,7 @@ public class SBATExecutor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("quitting driver2");
+		System.out.println("executing quit driver");
 		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 

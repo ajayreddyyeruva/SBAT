@@ -1,7 +1,7 @@
 package com.sandy.sbat.operation.mousehover;
 
-import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.AbstractSBATResponse;
 
-public class MouseHoverSBATResponse implements SBATResponse {
+public class MouseHoverSBATResponse extends AbstractSBATResponse {
 
 }

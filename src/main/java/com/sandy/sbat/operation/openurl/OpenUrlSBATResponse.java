@@ -1,7 +1,7 @@
 package com.sandy.sbat.operation.openurl;
 
-import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.AbstractSBATResponse;
 
-public class OpenUrlSBATResponse implements SBATResponse {
+public class OpenUrlSBATResponse extends AbstractSBATResponse{
 
 }

@@ -1,7 +1,7 @@
 package com.sandy.sbat.operation.textboxinput;
 
-import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.AbstractSBATResponse;
 
-public class TextBoxInputSBATResponse implements SBATResponse {
+public class TextBoxInputSBATResponse extends AbstractSBATResponse{
 
 }

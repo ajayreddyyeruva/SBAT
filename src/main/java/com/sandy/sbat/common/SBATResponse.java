@@ -6,5 +6,6 @@ package com.sandy.sbat.common;
  *
  */
 public interface SBATResponse {
-
+    
+    SBATStatus getStatus();
 }

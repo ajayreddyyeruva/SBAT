@@ -1,7 +1,7 @@
 package com.sandy.sbat.operation.elementclick;
 
-import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.AbstractSBATResponse;
 
-public class ElementClickSBATResponse implements SBATResponse {
+public class ElementClickSBATResponse extends AbstractSBATResponse{
 
 }

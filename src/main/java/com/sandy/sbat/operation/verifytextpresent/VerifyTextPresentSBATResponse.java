@@ -1,7 +1,7 @@
 package com.sandy.sbat.operation.verifytextpresent;
 
-import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.AbstractSBATResponse;
 
-public class VerifyTextPresentSBATResponse implements SBATResponse {
+public class VerifyTextPresentSBATResponse extends AbstractSBATResponse {
 
 }
