@@ -1,8 +1,6 @@
 package com.sandy.sbat.common;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 
 public enum WebDriverExecutor{
 
@@ -10,8 +8,8 @@ public enum WebDriverExecutor{
 	
 	WebDriver driver;
 	private WebDriverExecutor(){
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
+//		driver = new FirefoxDriver();
+//		driver.manage().window().maximize();
 	}
 	
 	
@@ -19,8 +17,12 @@ public enum WebDriverExecutor{
 	 * Need to fix it we should use some sort of wrapper
 	 * @return
 	 */
-	public WebDriver getWebDriver(){
-		return driver;
+	public WebDriver getWebDriver(WebDriver driver){
+	    this.driver=driver;
+	    return driver;
 	}
 	
+	public WebDriver getWebDriver() {
+        return driver;
+    }
 }

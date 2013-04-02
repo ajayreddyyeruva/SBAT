@@ -11,13 +11,12 @@ import com.sandy.sbat.common.Constants;
 import com.sandy.sbat.common.SBATCommand;
 import com.sandy.sbat.common.SBATRequest;
 import com.sandy.sbat.common.SBATResponse;
+import com.sandy.sbat.common.WebDriverExecutor;
 
 public class InitializationSBATCommand implements SBATCommand {
-	WebDriver webDriver;
 	private static String browser;
 	private static String platform;
-	
-	@Override
+	private WebDriver webDriver;
 	public SBATResponse execute(SBATRequest request) {
 		// TODO Auto-generated method stub
 		try 
@@ -25,42 +24,41 @@ public class InitializationSBATCommand implements SBATCommand {
 			InitializationSBATRequest initializationSBATRequest = (InitializationSBATRequest)request;
 			browser = initializationSBATRequest.getBrowser();
 			platform = initializationSBATRequest.getPlatform();
-			System.out.println("Browser:"+browser);
-			System.out.println("Platform:"+platform);
+//			System.out.println("Browser:"+browser);
+//			System.out.println("Platform:"+platform);
 			
 			DesiredCapabilities capability = new DesiredCapabilities();
 			capability.setBrowserName(browser);
 			
-				if (browser.equalsIgnoreCase(Constants.FIREFOX_BROWSER))
+			if (browser.equalsIgnoreCase(Constants.FIREFOX_BROWSER)) {
+				FirefoxProfile profile = new FirefoxProfile();
+				if (platform.equalsIgnoreCase(Constants.iphone)) 
 				{
-					FirefoxProfile profile = new FirefoxProfile();
-					if (platform.equalsIgnoreCase(Constants.iphone)) 
-					{
-						profile = new FirefoxProfile();
-						profile.setPreference("general.useragent.override", Constants.iphone_UA);
-					}
-					if (platform.equalsIgnoreCase(Constants.android)) 
-					{
-						System.out.println("Test");
-						profile = new FirefoxProfile();
-						profile.setPreference("general.useragent.override", Constants.android_UA);
-						System.out.println("Set done");
-					}
-					webDriver = new FirefoxDriver(profile);
+				    profile = new FirefoxProfile();
+					profile.setPreference("general.useragent.override", Constants.iphone_UA);
 				}
-				else if (browser.equalsIgnoreCase(Constants.IE_BROWSER)){
-					webDriver = new InternetExplorerDriver();	
+				if (platform.equalsIgnoreCase(Constants.android)) 
+				{
+					System.out.println("Test");
+					profile = new FirefoxProfile();
+					profile.setPreference("general.useragent.override", Constants.android_UA);
+					System.out.println("Set done");
 				}
+				webDriver = new FirefoxDriver(profile);
+			}
+			else if (browser.equalsIgnoreCase(Constants.IE_BROWSER)){
+				webDriver = new InternetExplorerDriver();	
+			}
 
-				else if (browser.equalsIgnoreCase("*chrome"))
-					webDriver = new ChromeDriver();
-				webDriver.get("http://www.snapdeal.com");
-			
+			else if (browser.equalsIgnoreCase("*chrome")){
+				webDriver = new ChromeDriver();
+			}
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
-		
+		WebDriverExecutor.SINGLETON.getWebDriver(webDriver);
+	//	webDriver.get("http://www.google.com");
 		return new InitializationSBATResponse();
 	}
 
