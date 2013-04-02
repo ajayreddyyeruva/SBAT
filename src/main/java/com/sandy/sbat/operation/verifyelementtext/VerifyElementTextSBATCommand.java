@@ -17,7 +17,6 @@ public class VerifyElementTextSBATCommand implements SBATCommand {
         VerifyElementTextSBATRequest verifyelementTextSBATRequest = (VerifyElementTextSBATRequest)request;
         System.out.println("Verifying Element's text '" +  verifyelementTextSBATRequest.getTextToVerify()+ "'");
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement webElement = webDriver.findElement(By.xpath(verifyelementTextSBATRequest.getTargetElementXPath()));
         boolean textCorrectnessFlag = webElement.getText().equals(verifyelementTextSBATRequest.getTextToVerify());
         System.out.println("Element Text Correct :: " + textCorrectnessFlag);

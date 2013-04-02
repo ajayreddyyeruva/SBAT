@@ -20,16 +20,10 @@ public class VerifyAllImagesSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-        List<WebElement> images = webDriver.findElements(By.tagName("img"));
-        
+        List<WebElement> images = webDriver.findElements(By.tagName("img"));      
         List<String> imageSources = new ArrayList<String> ();
-        
         String source;
-        try {
-            Thread.sleep(10000L);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
+        
         for(int i=0;i<images.size();i++){
             source=images.get(i).getAttribute("src");
             if(null!=source){
@@ -39,30 +33,38 @@ public class VerifyAllImagesSBATCommand implements SBATCommand {
             }
         }
         
+        URL url = null;
+        HttpURLConnection conn = null;
+        int responseCode = 0;
+        
         for(int i=0;i<imageSources.size();i++){
-            URL url = null;
+            
             try {
                 url = new URL(imageSources.get(i));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            HttpURLConnection conn = null;
+            
             try {
                 conn = (HttpURLConnection)url.openConnection();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            int responseCode = 0;
+            
             try {
                 responseCode = conn.getResponseCode();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
             if(responseCode==404){
                 System.out.println("Image not accessible :: " + imageSources.get(i));
             }
+            
             conn.disconnect();
+            
         }
+        
         return new VerifyAllImagesSBATResponse();
     }
 

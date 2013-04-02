@@ -15,10 +15,9 @@ public class ElementClickSBATCommand implements SBATCommand {
 
 	public SBATResponse execute(SBATRequest request) {
 		ElementClickSBATRequest elementClickSBATRequest = (ElementClickSBATRequest)request;
-
 		System.out.println("Performing element click for xpath " +  elementClickSBATRequest.getTargetElementXPath());
 		WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-		WebDriverWait webDriverWait = new WebDriverWait(webDriver, 300);
+		WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
 		WebElement textBoxElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(elementClickSBATRequest.getTargetElementXPath())));
 		textBoxElement.click();
 		return new ElementClickSBATResponse();

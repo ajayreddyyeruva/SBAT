@@ -1,8 +1,7 @@
 package com.sandy.sbat.operation.verifytextpresent;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
+
 import com.sandy.sbat.common.SBATCommand;
 import com.sandy.sbat.common.SBATRequest;
 import com.sandy.sbat.common.SBATResponse;
@@ -14,7 +13,6 @@ public class VerifyTextPresentSBATCommand implements SBATCommand {
         VerifyTextPresentSBATRequest verifyTextPresentSBATRequest = (VerifyTextPresentSBATRequest)request;
         System.out.println("Verifying text present '" +  verifyTextPresentSBATRequest.getTextToVerify()+ "'");
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         boolean textPresentFlag = webDriver.getPageSource().contains(verifyTextPresentSBATRequest.getTextToVerify());
         System.out.println("Text Present :: " + textPresentFlag);
         return new VerifyTextPresentSBATResponse();

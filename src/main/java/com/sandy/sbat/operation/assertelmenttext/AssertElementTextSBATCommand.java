@@ -1,7 +1,5 @@
 package com.sandy.sbat.operation.assertelmenttext;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +17,6 @@ public class AssertElementTextSBATCommand implements SBATCommand {
         AssertElementTextSBATRequest assertElementTextSBATRequest = (AssertElementTextSBATRequest)request;
         System.out.println("asserting element's text '" +  assertElementTextSBATRequest.getTextToVerify()+ "'");
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement webElement = webDriver.findElement(By.xpath(assertElementTextSBATRequest.getTargetElementXPath()));
         textCorrectnessFlag = webElement.getText().equals(assertElementTextSBATRequest.getTextToVerify());
         System.out.println("Element Text Correct :: " + textCorrectnessFlag);

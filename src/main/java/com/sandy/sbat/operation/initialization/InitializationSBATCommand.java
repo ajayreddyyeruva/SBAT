@@ -1,5 +1,7 @@
 package com.sandy.sbat.operation.initialization;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -39,10 +41,8 @@ public class InitializationSBATCommand implements SBATCommand {
 				}
 				if (platform.equalsIgnoreCase(Constants.android)) 
 				{
-					System.out.println("Test");
 					profile = new FirefoxProfile();
 					profile.setPreference("general.useragent.override", Constants.android_UA);
-					System.out.println("Set done");
 				}
 				webDriver = new FirefoxDriver(profile);
 			}
@@ -57,8 +57,9 @@ public class InitializationSBATCommand implements SBATCommand {
 		{
 			e.printStackTrace();
 		}
+		webDriver.manage().window().maximize();
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebDriverExecutor.SINGLETON.getWebDriver(webDriver);
-	//	webDriver.get("http://www.google.com");
 		return new InitializationSBATResponse();
 	}
 

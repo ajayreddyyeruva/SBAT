@@ -16,7 +16,6 @@ public class InitializationSBATRequest implements SBATRequest {
 	public void initialize(String requestString) {
 		String[] parameters = requestString.split(" ",2);
 		browser = parameters[0];
-		System.out.println(browser);
 		platform = parameters[1];
 	}
 	

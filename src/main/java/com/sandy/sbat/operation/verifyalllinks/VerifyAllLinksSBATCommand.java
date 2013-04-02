@@ -21,15 +21,10 @@ public class VerifyAllLinksSBATCommand implements SBATCommand {
     public SBATResponse execute(SBATRequest request) {
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
         List<WebElement> links = webDriver.findElements(By.tagName("a"));
-        
         List<String> linkSources = new ArrayList<String> ();
         
         String source;
-        try {
-            Thread.sleep(10000L);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
+        
         for(int i=0;i<links.size();i++){
             source=links.get(i).getAttribute("href");
             if(null!=source){
@@ -38,31 +33,41 @@ public class VerifyAllLinksSBATCommand implements SBATCommand {
                 }
             }
         }
-        System.out.println(linkSources.size());
+        
+        System.out.println("Total Hyperlinks : "+linkSources.size());
+        
+        URL url = null;
+        HttpURLConnection conn = null;
+        int responseCode = 0;
+        
         for(int i=0;i<linkSources.size();i++){
-            URL url = null;
+            
             try {
                 url = new URL(linkSources.get(i));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            HttpURLConnection conn = null;
+            
             try {
                 conn = (HttpURLConnection)url.openConnection();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            int responseCode = 0;
+            
             try {
                 responseCode = conn.getResponseCode();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
             if(responseCode==404){
                 System.out.println("Link not accessible :: " + linkSources.get(i));
             }
+            
             conn.disconnect();
+        
         }
+        
         return new VerifyAllLinksSBATResponse();
     }
 
