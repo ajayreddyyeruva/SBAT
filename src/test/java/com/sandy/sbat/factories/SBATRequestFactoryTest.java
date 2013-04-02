@@ -11,6 +11,8 @@ import org.junit.Test;
 import com.sandy.sbat.common.SBATRequest;
 import com.sandy.sbat.operation.elementclick.ElementClickSBATCommand;
 import com.sandy.sbat.operation.elementclick.ElementClickSBATRequest;
+import com.sandy.sbat.operation.initialization.InitializationSBATCommand;
+import com.sandy.sbat.operation.initialization.InitializationSBATRequest;
 import com.sandy.sbat.operation.mousehover.MouseHoverSBATCommand;
 import com.sandy.sbat.operation.mousehover.MouseHoverSBATRequest;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
@@ -95,6 +97,15 @@ public class SBATRequestFactoryTest {
         assertTrue(verifyallimagesSBATRequest instanceof VerifyAllImagesSBATRequest);
         assertNotNull(verifyallimagesSBATRequest.getCommand());
         assertTrue(verifyallimagesSBATRequest.getCommand() instanceof VerifyAllImagesSBATCommand);
+    }
+
+	@Test
+    public void testInitializationRequestCreation() throws Exception {
+        SBATRequest intializationSbatRequest = SBATRequestFactory.SINGLETON.getNewInstance("initialization", "firefox web");
+        assertNotNull(intializationSbatRequest);
+        assertTrue(intializationSbatRequest instanceof InitializationSBATRequest);
+        assertNotNull(intializationSbatRequest.getCommand());
+        assertTrue(intializationSbatRequest.getCommand() instanceof InitializationSBATCommand);
     }
 
 }
