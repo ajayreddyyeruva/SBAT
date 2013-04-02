@@ -17,6 +17,8 @@ import com.sandy.sbat.operation.openurl.OpenUrlSBATCommand;
 import com.sandy.sbat.operation.openurl.OpenUrlSBATRequest;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATCommand;
 import com.sandy.sbat.operation.textboxinput.TextBoxInputSBATRequest;
+import com.sandy.sbat.operation.verifyallimages.VerifyAllImagesSBATCommand;
+import com.sandy.sbat.operation.verifyallimages.VerifyAllImagesSBATRequest;
 import com.sandy.sbat.operation.verifytextpresent.VerifyTextPresentSBATCommand;
 import com.sandy.sbat.operation.verifytextpresent.VerifyTextPresentSBATRequest;
 
@@ -84,6 +86,15 @@ public class SBATRequestFactoryTest {
         assertEquals("text", ((VerifyTextPresentSBATRequest)verifytextpresentSBATRequest).getTextToVerify());
         assertNotNull(verifytextpresentSBATRequest.getCommand());
         assertTrue(verifytextpresentSBATRequest.getCommand() instanceof VerifyTextPresentSBATCommand);
+    }
+	
+	@Test
+    public void testVerifyAllImagesRequestCreation() throws Exception {
+        SBATRequest verifyallimagesSBATRequest = SBATRequestFactory.SINGLETON.getNewInstance("verifyAllImages", null);
+        assertNotNull(verifyallimagesSBATRequest);
+        assertTrue(verifyallimagesSBATRequest instanceof VerifyAllImagesSBATRequest);
+        assertNotNull(verifyallimagesSBATRequest.getCommand());
+        assertTrue(verifyallimagesSBATRequest.getCommand() instanceof VerifyAllImagesSBATCommand);
     }
 
 }
