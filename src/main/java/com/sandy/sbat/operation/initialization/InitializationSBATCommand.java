@@ -58,7 +58,7 @@ public class InitializationSBATCommand implements SBATCommand {
 			e.printStackTrace();
 		}
 		webDriver.manage().window().maximize();
-		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebDriverExecutor.SINGLETON.getWebDriver(webDriver);
 		return new InitializationSBATResponse();
 	}
