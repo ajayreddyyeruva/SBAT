@@ -62,7 +62,7 @@ public class SBATExecutor {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("executing quit driver");
+		System.out.println("Executing Quit WebDriver");
 		WebDriverExecutor.SINGLETON.getWebDriver().quit();
 	}
 

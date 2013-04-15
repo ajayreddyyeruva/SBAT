@@ -11,6 +11,7 @@ public class OpenUrlSBATCommand implements SBATCommand {
 
 	public SBATResponse execute(SBATRequest request) {
 		WebDriver webDriver=WebDriverExecutor.SINGLETON.getWebDriver();
+		System.out.println("Opening url"+((OpenUrlSBATRequest)request).getUrl());
 		webDriver.get(((OpenUrlSBATRequest)request).getUrl());
 	    return new OpenUrlSBATResponse();
 	}

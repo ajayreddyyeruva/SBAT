@@ -16,6 +16,7 @@ public class MouseHoverSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
         MouseHoverSBATRequest mouseHoverSBATRequest = (MouseHoverSBATRequest)request;
+        System.out.println("Performing mouse hover on element whose xpath is"+mouseHoverSBATRequest.getTargetElementXPath());
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
         WebElement targetElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(mouseHoverSBATRequest.getTargetElementXPath())));

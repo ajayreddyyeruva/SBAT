@@ -12,6 +12,7 @@ public class LoadCompletePageSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
+        System.out.println("Performing load complete page");
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         String s = null;
         while(true){
@@ -21,7 +22,6 @@ public class LoadCompletePageSBATCommand implements SBATCommand {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

@@ -8,6 +8,7 @@ public class WaitBATCommand implements SBATCommand {
 
 	public SBATResponse execute(SBATRequest request) {
 		WaitSBATRequest waitSBATRequest = (WaitSBATRequest)request;
+		System.out.println("Waiting for "+waitSBATRequest.getWaitingTime()+" seconds");
 		try {
             Thread.sleep(waitSBATRequest.getWaitingTime()* 1000);
         } catch (InterruptedException e) {

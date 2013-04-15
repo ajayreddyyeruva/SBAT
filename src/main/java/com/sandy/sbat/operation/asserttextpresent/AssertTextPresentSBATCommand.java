@@ -13,7 +13,7 @@ public class AssertTextPresentSBATCommand implements SBATCommand {
     
     public SBATResponse execute(SBATRequest request) {
         AssertTextPresentSBATRequest assertTextPresentSBATRequest = (AssertTextPresentSBATRequest)request;
-        System.out.println("asserting text present '" +  assertTextPresentSBATRequest.getTextToVerify()+ "'");
+        System.out.println("Performing assert text present for text'" +  assertTextPresentSBATRequest.getTextToVerify()+ "'");
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
         textPresentFlag = webDriver.getPageSource().contains(assertTextPresentSBATRequest.getTextToVerify());
         System.out.println("Text Present :: " + textPresentFlag);

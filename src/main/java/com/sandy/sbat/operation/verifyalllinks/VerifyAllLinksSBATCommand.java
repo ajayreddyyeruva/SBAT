@@ -20,6 +20,7 @@ public class VerifyAllLinksSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
+        System.out.println("Verifying all hyperlinks on current page");
         List<WebElement> links = webDriver.findElements(By.tagName("a"));
         List<String> linkSources = new ArrayList<String> ();
         

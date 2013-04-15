@@ -20,6 +20,7 @@ public class VerifyAllImagesSBATCommand implements SBATCommand {
 
     public SBATResponse execute(SBATRequest request) {
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
+        System.out.println("Verifying all images on current page");
         List<WebElement> images = webDriver.findElements(By.tagName("img"));      
         List<String> imageSources = new ArrayList<String> ();
         String source;

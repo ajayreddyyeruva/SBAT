@@ -17,7 +17,7 @@ public class VerifyURLSBATCommand implements SBATCommand {
 	    
 		VerifyURLSBATRequest verifyURLSBATRequest = (VerifyURLSBATRequest)request;
 		WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
-		
+		System.out.println("Verifying url");
 		String expectedURL=verifyURLSBATRequest.getExpectedURL().trim();
 		String actualURL=webDriver.getCurrentUrl().trim();
 		

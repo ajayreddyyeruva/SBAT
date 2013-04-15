@@ -15,11 +15,11 @@ public class AssertElementTextSBATCommand implements SBATCommand {
     
     public SBATResponse execute(SBATRequest request) {
         AssertElementTextSBATRequest assertElementTextSBATRequest = (AssertElementTextSBATRequest)request;
-        System.out.println("asserting element's text '" +  assertElementTextSBATRequest.getTextToVerify()+ "'");
+        System.out.println("Performing assert element text for text '" +  assertElementTextSBATRequest.getTextToVerify()+ "'");
         WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
         WebElement webElement = webDriver.findElement(By.xpath(assertElementTextSBATRequest.getTargetElementXPath()));
         textCorrectnessFlag = webElement.getText().equals(assertElementTextSBATRequest.getTextToVerify());
-        System.out.println("Element Text Correct :: " + textCorrectnessFlag);
+        System.out.println("Element's Text Correct :: " + textCorrectnessFlag);
         return new AssertElementTextSBATResponse();
     }
 

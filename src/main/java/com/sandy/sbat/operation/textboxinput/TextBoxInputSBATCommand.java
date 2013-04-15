@@ -15,7 +15,7 @@ public class TextBoxInputSBATCommand implements SBATCommand {
 
 	public SBATResponse execute(SBATRequest request) {
 		TextBoxInputSBATRequest textBoxInputSBATRequest = (TextBoxInputSBATRequest)request;
-		System.out.println("Doing input in an element with xpath " +  textBoxInputSBATRequest.getTargetElementXPath());
+		System.out.println("Input '"+textBoxInputSBATRequest.getText()+"' in an element with xpath " +  textBoxInputSBATRequest.getTargetElementXPath());
 		WebDriver webDriver = WebDriverExecutor.SINGLETON.getWebDriver();
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
 		WebElement textBoxElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(textBoxInputSBATRequest.getTargetElementXPath())));

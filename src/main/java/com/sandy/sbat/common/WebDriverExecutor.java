@@ -8,8 +8,6 @@ public enum WebDriverExecutor{
 	
 	WebDriver driver;
 	private WebDriverExecutor(){
-//		driver = new FirefoxDriver();
-//		driver.manage().window().maximize();
 	}
 	
 	

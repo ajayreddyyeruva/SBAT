@@ -26,8 +26,9 @@ public class InitializationSBATCommand implements SBATCommand {
 			InitializationSBATRequest initializationSBATRequest = (InitializationSBATRequest)request;
 			browser = initializationSBATRequest.getBrowser();
 			platform = initializationSBATRequest.getPlatform();
-//			System.out.println("Browser:"+browser);
-//			System.out.println("Platform:"+platform);
+			System.out.println("Intializing browser and platform");
+			System.out.println("Browser :: "+browser);
+			System.out.println("Platform :: "+platform);
 			
 			DesiredCapabilities capability = new DesiredCapabilities();
 			capability.setBrowserName(browser);
