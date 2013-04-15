@@ -52,7 +52,7 @@ public class InitializationSBATCommand implements SBATCommand {
 			}
 
 			else if (browser.equalsIgnoreCase("*chrome")){
-				webDriver = new ChromeDriver();
+			    webDriver = new ChromeDriver();		
 			}
 		} catch (Exception e)
 		{
