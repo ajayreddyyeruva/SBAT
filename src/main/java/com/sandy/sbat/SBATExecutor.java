@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import com.sandy.sbat.common.SBATRequest;
@@ -40,10 +42,10 @@ public class SBATExecutor {
 		return sbatResponse;
 	}
 	
-	public void execute(File operationsFile) {
+	public void execute(InputStream operationsFile) {
 		BufferedReader br;
 		try {
-			br = new BufferedReader(new FileReader(operationsFile));
+			br = new BufferedReader(new InputStreamReader(operationsFile));
 			String operationString;
 			try {
 				while ((operationString = br.readLine()) != null) {
