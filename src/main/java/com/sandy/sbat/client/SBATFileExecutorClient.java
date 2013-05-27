@@ -8,7 +8,7 @@ public class SBATFileExecutorClient {
     
 	public static void main(String[] args) {
 		SBATExecutor sbatExecutor = new SBATExecutor();
-		sbatExecutor.execute(new File("src/test/resources/sample.txt"));
+		sbatExecutor.execute(new File("src/test/resources/buy_flow.txt"));
 	}
 	
 }
