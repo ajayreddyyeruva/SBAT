@@ -1,10 +1,9 @@
 initialization firefox web
-openUrl http://site.release.snapdeal.com:9050/
-clickElement //*[@id="content_wrapper"]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/a/div/div[2]
+openUrl http://site.release.snapdeal.com:9050/product/Buffalo500/64491
 clickElement //*[@id="BuyButton-1"]
 clickElement //*[@id="checkout-cart"]/div/div[1]/span/a
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[2]/input Gaurav Kaushik
-textBoxInput //*[@id="customer-info-form"]/div[2]/div[3]/input gaurav.kaushik@snapdeal.com  
+textBoxInput //*[@id="customer-info-form"]/div[2]/div[3]/input gaurav.kaushik@snapdeal.com
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[4]/input 9555432784
 clickElement //*[@id="customer-info-form"]/div[2]/div[5]/div[1]/input
 clickElement //*[@id="customer-info-continue"]/span
