@@ -25,4 +25,3 @@ clickElement //*[@id="payment-modes"]/div[4]/input
 takeScreenshot screenshots/9.png
 clickElement //*[@id="payment-continue"]/span
 takeScreenshot screenshots/10.png
-wait 10
