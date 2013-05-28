@@ -1,18 +1,28 @@
 initialization firefox web
-openUrl http://site.release.snapdeal.com:9050/product/Buffalo500/64491
+takeScreenshot screenshots/1.jpg
+openUrl site.release.snapdeal.com:9050/product/Buffalo500/64491
+takeScreenshot screenshots/2.jpg
 clickElement //*[@id="BuyButton-1"]
+takeScreenshot screenshots/3.jpg
 clickElement //*[@id="checkout-cart"]/div/div[1]/span/a
+takeScreenshot screenshots/4.jpg
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[2]/input Gaurav Kaushik
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[3]/input gaurav.kaushik@snapdeal.com
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[4]/input 9555432784
 clickElement //*[@id="customer-info-form"]/div[2]/div[5]/div[1]/input
+takeScreenshot screenshots/5.jpg
 clickElement //*[@id="customer-info-continue"]/span
 textBoxInput //*[@id="address-line1"] k-366,Sarita Vihar
 textBoxInput //*[@id="address-city"] New Delhi
 textBoxInput //*[@id="address-state"] Delhi
 textBoxInput //*[@id="zipcode"] 110001
+takeScreenshot screenshots/6.jpg
 clickElement //*[@id="delivery-modes-continue"]/span
+takeScreenshot screenshots/7.jpg
 clickElement //*[@id="order-summary-button-text"]
+takeScreenshot screenshots/8.jpg
 clickElement //*[@id="payment-modes"]/div[4]/input
+takeScreenshot screenshots/9.jpg
 clickElement //*[@id="payment-continue"]/span
+takeScreenshot screenshots/10.jpg
 wait 10

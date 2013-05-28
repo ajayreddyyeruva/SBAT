@@ -23,7 +23,6 @@ public class TakeScreenshotSBATCommand implements SBATCommand {
 		try {
             FileUtils.copyFile(scrFile, new File(outputFilePath));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 		return new TakeScreenshotSBATResponse();
