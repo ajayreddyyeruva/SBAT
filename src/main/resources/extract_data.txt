@@ -1,0 +1,5 @@
+initialization firefox web
+openUrl http://site.staging.snapdeal.com:9050
+textBoxInput //*[@id="keyword"] samsung
+clickElement //*[@id="submitDealsNearMeExplore"]
+extractDataByClass //*[@id="content_wrapper"]/div[1]/div[3]/div/div[2]/div[2]

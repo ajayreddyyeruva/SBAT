@@ -1,27 +1,26 @@
 initialization firefox web
+openUrl http://site.staging.snapdeal.com:9050/product/SonyHDEG5S/93309
 takeScreenshot screenshots/1.png
-openUrl site.release.snapdeal.com:9050/product/Buffalo500/64491
-takeScreenshot screenshots/2.png
 clickElement //*[@id="BuyButton-1"]
-takeScreenshot screenshots/3.png
+takeScreenshot screenshots/2.png
 clickElement //*[@id="checkout-cart"]/div/div[1]/span/a
-takeScreenshot screenshots/4.png
+takeScreenshot screenshots/3.png
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[2]/input Gaurav Kaushik
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[3]/input gaurav.kaushik@snapdeal.com
 textBoxInput //*[@id="customer-info-form"]/div[2]/div[4]/input 9555432784
 clickElement //*[@id="customer-info-form"]/div[2]/div[5]/div[1]/input
-takeScreenshot screenshots/5.png
+takeScreenshot screenshots/4.png
 clickElement //*[@id="customer-info-continue"]/span
 textBoxInput //*[@id="address-line1"] k-366,Sarita Vihar
 textBoxInput //*[@id="address-city"] New Delhi
 textBoxInput //*[@id="address-state"] Delhi
 textBoxInput //*[@id="zipcode"] 110001
-takeScreenshot screenshots/6.png
+takeScreenshot screenshots/5.png
 clickElement //*[@id="delivery-modes-continue"]/span
-takeScreenshot screenshots/7.png
+takeScreenshot screenshots/6.png
 clickElement //*[@id="order-summary-button-text"]
-takeScreenshot screenshots/8.png
+takeScreenshot screenshots/7.png
 clickElement //*[@id="payment-modes"]/div[4]/input
-takeScreenshot screenshots/9.png
+takeScreenshot screenshots/8.png
 clickElement //*[@id="payment-continue"]/span
-takeScreenshot screenshots/10.png
+takeScreenshot screenshots/9.png
