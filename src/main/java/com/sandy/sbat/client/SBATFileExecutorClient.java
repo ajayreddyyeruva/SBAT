@@ -11,7 +11,7 @@ public class SBATFileExecutorClient {
     
 	public static void main(String[] args) {
 		SBATExecutor sbatExecutor = new SBATExecutor();
-		String filePath=System.getProperty("user.dir")+"/TestScripts/buy_flow.txt";
+		String filePath=System.getProperty("user.dir")+"/../TestScripts/buy_flow.txt";
 		File file = new File(filePath);
 		InputStream in = null;
         try {
