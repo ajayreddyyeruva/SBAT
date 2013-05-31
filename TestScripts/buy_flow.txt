@@ -1,5 +1,5 @@
 initialization firefox web
-openUrl http://site.staging.snapdeal.com:9050/product/SonyHDEG5S/93309
+openUrl http://site.release.snapdeal.com:9050/product/Buffalo500/64491
 takeScreenshot screenshots/1.png
 clickElement //*[@id="BuyButton-1"]
 takeScreenshot screenshots/2.png
@@ -17,10 +17,13 @@ textBoxInput //*[@id="address-state"] Delhi
 textBoxInput //*[@id="zipcode"] 110001
 takeScreenshot screenshots/5.png
 clickElement //*[@id="delivery-modes-continue"]/span
+clickElement //*[@id="promo-click-here"]
+textBoxInput //*[@id="promocode-input"] sdtestpr1
+clickElement //*[@id="order-summary"]/div[2]/div[1]/div[2]/div[2]/div
 takeScreenshot screenshots/6.png
+wait 7
 clickElement //*[@id="order-summary-button-text"]
 takeScreenshot screenshots/7.png
-clickElement //*[@id="payment-modes"]/div[4]/input
+clickElement //*[@id="container"]/div[1]/div/div[1]/div[2]/div[5]/a/img
+wait 7
 takeScreenshot screenshots/8.png
-clickElement //*[@id="payment-continue"]/span
-takeScreenshot screenshots/9.png
