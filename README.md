@@ -1,4 +1,4 @@
 SBAT
 ====
 
-Selenium Bridge for Automation Testing
+Selenium Bridge for Automation Testing.
