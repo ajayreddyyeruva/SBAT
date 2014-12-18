@@ -12,3 +12,4 @@ master
 master is here.
 feature1
 master
+feature1
